@@ -18,7 +18,7 @@ object K2K {
     val sqlContext = sparkSession.sqlContext
     val sparkContext = sparkSession.sparkContext
     //sparkContext.setLogLevel("OFF")
-    sparkContext.hadoopConfiguration.set("fs.defaultFS", "hdfs://irlpqa19.informatica.com:8020")
+    sparkContext.hadoopConfiguration.set("fs.defaultFS", "<Set Default File system URL of hadoop cluster>")
 
     val readStreamDFInd = sqlContext.readStream.format("kafka").option("kafka.bootstrap.servers", args(2))
       .option("subscribe", args(3)).option("failOnDataLoss", "false")
