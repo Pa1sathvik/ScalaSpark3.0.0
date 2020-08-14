@@ -56,5 +56,15 @@ object K2K {
       .start()
 
     sqlContext.streams.awaitAnyTermination()
+    
+    /*
+     * Spark Submit command to run the Kafka -> Kafka with specified schema. Make a JAR package with this class K2K.jar.
+     * Place the JAR in the Hadoop or any cluster which run spark 3.0.0 or other version.
+     * Below is the command used to run spark job. You can check the status of spark in <host>:4040 url.
+     * Command is ---> "spark-submit --conf spark.sql.shuffle.partitions=18 --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0-preview2 --files /etc/hive/conf/hive-site.xml --class org.spark3.performance.K2K --master yarn --deploy-mode cluster --num-executors 6 --executor-memory 16g --executor-cores 3  K2K.jar POC yarn localhost:9092 MS MT1" 
+     *   
+     */
+    
+    
   }
 }
